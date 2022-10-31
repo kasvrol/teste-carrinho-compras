@@ -30,6 +30,10 @@ public class ShoppingCart {
      * @param quantity
      */
     public void addItem(Product product, BigDecimal unitPrice, int quantity) {
+        if (product == getItems()) {
+            // acessa item e muda a quantidade
+        }
+        items.add(quantity, null);
 
     }
 
@@ -42,6 +46,11 @@ public class ShoppingCart {
      *         caso o produto não exista no carrinho.
      */
     public boolean removeItem(Product product) {
+        for (Item i : items) {
+            if (i.equals(product))
+                items.remove(product);
+            return true;
+        }
         return false;
     }
 
@@ -56,6 +65,11 @@ public class ShoppingCart {
      *         caso o produto não exista no carrinho.
      */
     public boolean removeItem(int itemIndex) {
+        for (Item i : items) {
+            if (i.equals(itemIndex))
+                items.remove(itemIndex);
+            return true;
+        }
         return false;
     }
 
