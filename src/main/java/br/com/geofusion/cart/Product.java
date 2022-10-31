@@ -1,5 +1,7 @@
 package br.com.geofusion.cart;
 
+import java.util.ArrayList;
+
 /**
  * Classe que representa um produto que pode ser adicionado
  * como item ao carrinho de compras.
@@ -12,7 +14,9 @@ public class Product {
     private Long code;
     private String description;
     protected int id;
+    protected int quantity;
     private static int count = 1;
+    protected ArrayList<Product> products;
 
     /**
      * Construtor da classe Produto.
@@ -23,10 +27,11 @@ public class Product {
     public Product(Long code, String description) {
     }
 
-    public Product(Long code, String description, int id) {
+    public Product(Long code, String description, int quantity) {
         this.code = code;
         this.description = description;
         this.id = Product.count;
+        this.quantity = quantity;
 
         Product.count++;
     }
@@ -51,6 +56,35 @@ public class Product {
 
     public int getId() {
         return this.id;
+    }
+
+    public int getQuantity() {
+        return this.quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public void signUpProduct(Long code, String description) {
+        products = new ArrayList<>();
+        products.add(new Product(code, description, 1));
+
+        equalProduct();
+    }
+
+    public void equalProduct() {
+        for (Product codeUp : products) {
+            if (codeUp.getCode() == code) {
+                try {
+                    // uso comparable
+
+                } catch (NullPointerException e) {
+                    quantity = 1;
+
+                }
+            }
+        }
     }
 
 }
