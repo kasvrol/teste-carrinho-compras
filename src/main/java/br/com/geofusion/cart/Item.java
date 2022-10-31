@@ -7,6 +7,11 @@ import java.math.BigDecimal;
  */
 public class Item {
 
+    protected Product product;
+    protected BigDecimal unitPrice;
+    protected int quantity;
+    protected BigDecimal total;
+
     /**
      * Construtor da classe Item.
      *
@@ -17,13 +22,20 @@ public class Item {
     public Item(Product product, BigDecimal unitPrice, int quantity) {
     }
 
+    public Item(Product product, BigDecimal unitPrice, int quantity, BigDecimal total) {
+        this.product = product;
+        this.unitPrice = unitPrice;
+        this.quantity = quantity;
+        this.total = total;
+    }
+
     /**
      * Retorna o produto.
      *
      * @return Produto
      */
     public Product getProduct() {
-        return null;
+        return product;
     }
 
     /**
@@ -32,7 +44,7 @@ public class Item {
      * @return BigDecimal
      */
     public BigDecimal getUnitPrice() {
-        return null;
+        return unitPrice;
     }
 
     /**
@@ -41,7 +53,7 @@ public class Item {
      * @return int
      */
     public int getQuantity() {
-        return 0;
+        return quantity;
     }
 
     /**
@@ -50,7 +62,6 @@ public class Item {
      * @return BigDecimal
      */
     public BigDecimal getAmount() {
-        return null;
+        return total;
     }
 }
-
