@@ -11,6 +11,8 @@ public class Product {
 
     private Long code;
     private String description;
+    protected int id;
+    private static int count = 1;
 
     /**
      * Construtor da classe Produto.
@@ -21,8 +23,12 @@ public class Product {
     public Product(Long code, String description) {
     }
 
-    public Product(Long code2) {
-        this.code = code2;
+    public Product(Long code, String description, int id) {
+        this.code = code;
+        this.description = description;
+        this.id = Product.count;
+
+        Product.count++;
     }
 
     /**
@@ -41,6 +47,10 @@ public class Product {
      */
     public String getDescription() {
         return this.description;
+    }
+
+    public int getId() {
+        return this.id;
     }
 
 }
