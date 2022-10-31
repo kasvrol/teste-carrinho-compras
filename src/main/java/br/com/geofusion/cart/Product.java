@@ -21,6 +21,10 @@ public class Product {
     public Product(Long code, String description) {
     }
 
+    public Product(Long code2) {
+        this.code = code2;
+    }
+
     /**
      * Retorna o código da produto.
      *
